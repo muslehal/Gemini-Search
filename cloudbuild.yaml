@@ -1,10 +1,10 @@
 steps:
   # Install dependencies
-  - name: 'gcr.io/cloud-builders/npm:20-buster'  # Corrected tag
+  - name: 'gcr.io/cloud-builders/npm:20'  # Corrected tag
     args: ['install']
 
   # Run the build script
-  - name: 'gcr.io/cloud-builders/npm:20-buster'  # Corrected tag
+  - name: 'gcr.io/cloud-builders/npm:20'  # Corrected tag
     args: ['run', 'build']
 
   # Deploy to App Engine (using the default service)
