@@ -1,10 +1,10 @@
 steps:
   # Install dependencies
-  - name: 'gcr.io/cloud-builders/npm:node-20' # Use Node.js 20 image
+  - name: 'gcr.io/cloud-builders/npm:20-buster'  # Corrected tag
     args: ['install']
 
-  # Run the build script (defined in your package.json)
-  - name: 'gcr.io/cloud-builders/npm:node-20' # Use Node.js 20 image
+  # Run the build script
+  - name: 'gcr.io/cloud-builders/npm:20-buster'  # Corrected tag
     args: ['run', 'build']
 
   # Deploy to App Engine (using the default service)
@@ -15,7 +15,7 @@ steps:
   # - name: 'gcr.io/cloud-builders/gcloud'
   #   args: ['app', 'deploy', '--service=debug-service', '--quiet']
 
-timeout: '600s' # Optional
+timeout: '600s'
 
 options:
   logging: CLOUD_LOGGING_ONLY
