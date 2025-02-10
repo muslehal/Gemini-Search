@@ -15,4 +15,8 @@ steps:
   # - name: 'gcr.io/cloud-builders/gcloud'
   #   args: ['app', 'deploy', '--service=debug-service', '--quiet']
 
-timeout: '600s' # Optional: Increase timeout if your build takes longer than 10 minutes (default)
+timeout: '600s' # Optional
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
