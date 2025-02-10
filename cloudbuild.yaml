@@ -1,10 +1,10 @@
 steps:
   # Install dependencies
-  - name: 'gcr.io/cloud-builders/npm:latest'  # Corrected tag to 'latest'
+  - name: 'gcr.io/cloud-builders/npm:node-20'  # Corrected tag to 'node-20'
     args: ['install']
 
   # Run the build script
-  - name: 'gcr.io/cloud-builders/npm:latest'  # Corrected tag to 'latest'
+  - name: 'gcr.io/cloud-builders/npm:node-20'  # Corrected tag to 'node-20'
     args: ['run', 'build']
 
   # Deploy to App Engine (using the default service)
