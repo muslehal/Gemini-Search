@@ -1,22 +1,16 @@
 steps:
-  # Install dependencies
-  - name: 'gcr.io/cloud-builders/npm:node-20'  # Corrected tag to 'node-20'
-    args: ['install']
 
-  # Run the build script
-  - name: 'gcr.io/cloud-builders/npm:node-20'  # Corrected tag to 'node-20'
-    args: ['run', 'build']
-
-  # Deploy to App Engine (using the default service)
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: ['app', 'deploy', '--quiet']
-
-  # Deploy to App Engine (using a specific service - e.g., debug-service)
-  # - name: 'gcr.io/cloud-builders/gcloud'
-  #    args: ['app', 'deploy', '--service=debug-service', '--quiet']
-
+Install dependencies
+name: 'gcr.io/cloud-builders/npm:node' # Corrected tag to 'node' args: ['install']
+Run the build script
+name: 'gcr.io/cloud-builders/npm:node' # Corrected tag to 'node' args: ['run', 'build']
+Deploy to App Engine (using the default service)
+name: 'gcr.io/cloud-builders/gcloud' args: ['app', 'deploy', '--quiet']
+Deploy to App Engine (using a specific service - e.g., debug-service)
+- name: 'gcr.io/cloud-builders/gcloud'
+args: ['app', 'deploy', '--service=debug-service', '--quiet']
 timeout: '600s'
 
 options:
-  logging: CLOUD_LOGGING_ONLY
-  defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
+logging: CLOUD_LOGGING_ONLY
+defaultLogsBucketBehavior: REGIONAL_USER_OWNED_BUCKET
