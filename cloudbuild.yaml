@@ -1,10 +1,10 @@
 steps:
   # Install dependencies
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'gcr.io/cloud-builders/npm:node-20' # Use Node.js 20 image
     args: ['install']
 
   # Run the build script (defined in your package.json)
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'gcr.io/cloud-builders/npm:node-20' # Use Node.js 20 image
     args: ['run', 'build']
 
   # Deploy to App Engine (using the default service)
